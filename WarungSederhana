@@ -1,0 +1,274 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.percabangan;
+
+/**
+ *
+ * @author alifia ardita
+ */
+import java.util.Scanner;
+public class KasirWarung2 {
+   
+
+
+
+
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        double totalBiaya=0, grandTotal=0, diskon, totalAkhir=0, uangDibayar, kembalian;
+
+        int pilihMenu, kartuMember;
+
+        
+
+        System.out.println("===== Selamat Datang di Warung Sederhana =====");
+
+        System.out.println("\n----- MENU MAKANAN -----");
+
+        System.out.println("1. Sate");
+
+        System.out.println("   - Sate Ayam        : Rp.1500/tusuk");
+
+        System.out.println("   - Sate Kambing     : Rp.3000/tusuk");
+
+        System.out.println("2. Pecel");
+
+        System.out.println("   - Lauk Ayam        : Rp.13000/porsi");
+
+        System.out.println("   - Lauk Empal       : Rp.15000/porsi");
+
+        System.out.println("3. Penyetan");
+
+        System.out.println("   - Lauk Tahu/Tempe  : Rp.5000/porsi");
+
+        System.out.println("   - Lauk Telur       : Rp.7000/porsi");
+
+        System.out.println("   - Lauk Ayam        : Rp.10000/porsi");
+
+        System.out.println("4. Selesai");
+
+        System.out.println("----------------------------------------");
+
+        
+
+        do{
+
+            System.out.print("\nPilih menu : ");
+
+            pilihMenu = sc.nextInt();
+
+            if (pilihMenu==4){
+
+                System.out.println("Terima kasih dan selamat menikmati :)");
+
+                break;}            
+
+            switch(pilihMenu){
+
+                case 1:
+
+                    System.out.println("-- Jenis sate --");
+
+                    System.out.println("1. Sate ayam        : Rp.1500/tusuk");
+
+                    System.out.println("2. Sate kambing     : Rp.3000/tusuk");
+
+                    System.out.print("Pilih jenis sate    : ");
+
+                    int jenisSate = sc.nextInt();
+
+                    System.out.print("Jumlah sate         : ");
+
+                    int jumlahSate = sc.nextInt();
+
+                    
+
+                    if(jenisSate==1){
+
+                        totalBiaya = jumlahSate*1500;                     
+
+                    }else if (jenisSate==2){
+
+                        totalBiaya = jumlahSate*3000;
+
+                    }else{
+
+                        System.out.println("Pilihan tidak ada");
+
+                        continue;
+
+                    }break;                
+
+                case 2:
+
+                    System.out.println("-- Lauk pecel --");
+
+                    System.out.println("1. Lauk ayam        : Rp.13000/porsi");
+
+                    System.out.println("2. Lauk empal       : Rp.15000/porsi");
+
+                    System.out.print("Pilih lauk pecel    : ");
+
+                    int laukPecel = sc.nextInt ();
+
+                    System.out.print("Jumlah porsi        : ");
+
+                    int jumlahPecel = sc.nextInt();
+
+                    
+
+                    if(laukPecel==1){
+
+                        totalBiaya = jumlahPecel*13000;
+
+                    }else if(laukPecel==2){
+
+                        totalBiaya = jumlahPecel*15000;
+
+                    }else{
+
+                        System.out.println("Pilihan lauk tidak ada");
+
+                        continue;
+
+                    }break;    
+
+                case 3:
+
+                    System.out.println("-- Lauk penyetan --");
+
+                    System.out.println("1. Lauk tahu/tempe  : Rp.5000/porsi");
+
+                    System.out.println("2. Lauk telur       : Rp.7000/porsi");
+
+                    System.out.println("3. Lauk ayam        : Rp.10000/porsi");
+
+                    System.out.print("Pilih lauk penyetan : ");
+
+                    int laukPenyetan = sc.nextInt();
+
+                    System.out.print("Jumlah porsi        : ");
+
+                    int jumlahPenyetan = sc.nextInt();                  
+
+                    switch(laukPenyetan){
+
+                        case 1: 
+
+                            totalBiaya = jumlahPenyetan*5000;
+
+                            break;
+
+                        case 2:
+
+                            totalBiaya = jumlahPenyetan*7000;
+
+                            break;
+
+                        case 3:
+
+                            totalBiaya = jumlahPenyetan*10000;
+
+                            break;
+
+                        default:
+
+                            System.out.println("Pilihan lauk tidak ada");
+
+                            continue;
+
+                    }break;        
+
+                default:
+
+                    System.out.println("pilihan menu tidak valid");
+
+                    continue;}
+
+            grandTotal+=totalBiaya;
+
+            System.out.println("Total Biaya         : Rp."+totalBiaya);            
+
+        }while(pilihMenu != 4);
+
+        
+
+        System.out.println("\n============== Pembayaran ==============");
+
+        System.out.println("Grand total : Rp."+grandTotal);
+
+        System.out.println("Apakah Anda memiliki kartu member?");
+
+        System.out.println("1. Iya\n2. Tidak");
+
+        System.out.print("Kartu member    : ");
+
+        kartuMember = sc.nextInt();
+
+        
+
+        switch (kartuMember) {
+
+            case 1:
+
+                System.out.println("Anda mendapat diskon 5%");
+
+                diskon = 0.05*grandTotal;
+
+                System.out.println("Total       : Rp."+diskon);
+
+                totalAkhir = grandTotal-diskon;
+
+                System.out.println("Total akhir : Rp."+totalAkhir);
+
+                break;
+
+            case 2:
+
+                System.out.println("Anda tidak mendapat diskon");
+
+                diskon = 0*grandTotal;
+
+                System.out.println("Diskon      : Rp."+diskon);
+
+                totalAkhir = grandTotal-diskon;
+
+                System.out.println("Total akhir : Rp."+totalAkhir);
+
+                break;
+
+            default:
+
+                System.out.println("coba lagi");
+
+                break;}
+
+        
+
+        System.out.print("Uang masuk  : Rp.");
+
+        uangDibayar = sc.nextDouble();
+
+        
+
+        if(uangDibayar>totalAkhir){
+
+            kembalian = uangDibayar-totalAkhir;
+
+            System.out.println("Kembalian   : Rp."+kembalian);
+
+        }else if(uangDibayar==totalAkhir){
+
+            System.out.println("Uang Pas");
+
+        }else{
+
+            System.out.println("Uang yang dibayarkan kurang");}
+
+        sc.close();}
+}
